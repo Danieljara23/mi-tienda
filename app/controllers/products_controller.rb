@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_product, only: [:edit,:show,:update,:destroy]
+  before_action :its_admin?
+
 
   def new
     @product = Product.new
@@ -50,6 +52,12 @@ class ProductsController < ApplicationController
 
   def find_product
     @product = Product.find(params[:id])
+  end
+
+  def its_admin?
+    unless current_user.admin?
+      redirect_to root_path, :alert => "Acceso denegado, no posee permisos como administrador"
+    end
   end
 
 
