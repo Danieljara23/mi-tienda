@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'annotate'
 gem 'hirb'
 gem 'devise'
+gem 'paperclip', "~> 5.0.0"
 
 gem 'bootstrap-sass', '~> 3.3.6'
 

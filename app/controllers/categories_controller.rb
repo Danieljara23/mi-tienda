@@ -21,7 +21,7 @@ class CategoriesController < ApplicationController
       flash[:notice] = 'Store was siccessfully updated'
       redirect_to category_path(id: @category.id, it_was: 'updated')
     else
-      render edit
+      render :edit
     end
   end
 

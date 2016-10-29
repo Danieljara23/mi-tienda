@@ -4,3 +4,22 @@
 nav.navbar{
   margin-bottom: 0;
 }
+#productsContainer{
+  margin-top: 20px;
+}
+#productsContainer .thumbnail{
+  height: 420px;
+}
+p.description{
+  height: 90px;
+  overflow: auto;
+}
+#productsContainer #categories{
+  background-color: #eeeeee;
+  border-radius: 5px;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,0.4);
+  position: fixed;
+}
+#productsContainer #categories + div{
+  margin-left: 215px;
+}

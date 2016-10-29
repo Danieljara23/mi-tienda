@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1><%= @user.email %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Compras por pagar</h1>
+      <table class="table text-center">
+        <thead>
+          <th class="text-center">Imagen</th>
+          <th class="text-center">Producto</th>
+          <th class="text-center">Precio</th>
+          <th class="text-center">Fecha</th>
+          <th class="text-center">Estado</th>
+          <% if current_user.admin? %>
+            <th>Opciones</th>
+          <% end %>
+        </thead>
+        <tbody>
+            <% @pending_purchases.each do |purchase| %>
+            <tr>
+              <td><%= image_tag purchase.product.image.url(:micro_thumb)%></td>
+              <td><%= purchase.product.name %></td>
+              <td><%= purchase.product.price %></td>
+              <td><%= purchase.product.created_at.strftime("Comprado el %d de %B de %Y") %></td>
+              <td class="danger"><%= purchase.status.humanize %></td>
+              <% if current_user.admin? %>
+                <td><%= link_to 'Pagar', purchase_path(id: purchase.id, user_id: purchase.user_id), method: :patch %> -
+                    <%= link_to 'Eliminar', purchase_path(id: purchase.id, user_id: purchase.user_id), method: :delete, data: {confirm: "Seguro que deseas elimiar esta compra?"} %>
+                </td>
+              <% end %>
+            </tr>
+            <% end %>
+
+            <% @paid_purchases.each do |purchase| %>
+            <tr>
+              <td><%= image_tag purchase.product.image.url(:micro_thumb)%></td>
+              <td><%= purchase.product.name %></td>
+              <td><%= purchase.product.price %></td>
+              <td><%= purchase.product.created_at.strftime("Comprado el %d de %B de %Y") %></td>
+              <td class="success"><%= purchase.status.humanize %></td>
+              <% if current_user.admin? %>
+                <td><%= link_to 'Eliminar', purchase_path(id: purchase.id, user_id: purchase.user_id), method: :delete, data: {confirm: "Seguro que deseas elimiar esta compra?"} %></td>
+              <% end %>
+            </tr>
+            <% end %>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
