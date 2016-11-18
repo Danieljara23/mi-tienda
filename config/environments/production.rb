@@ -96,4 +96,15 @@ Rails.application.configure do
        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
      }
    }
+
+  ActionMailer::Base.smtp_settings = {
+     :user_name => ENV['SENGRID_USERNAME'],
+     :password => ENV['SENGRID_PASSWORD'],
+     :domain => 'https://latiendadememo.herokuapp.com/',
+     :address => 'smpt.sengrid.net',
+     :port => 587,
+     :authentication => :plain,
+     :enable_starttls_auto => true
+   }
+  
 end
