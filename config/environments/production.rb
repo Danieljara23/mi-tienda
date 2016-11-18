@@ -98,13 +98,13 @@ Rails.application.configure do
    }
 
   ActionMailer::Base.smtp_settings = {
-     :user_name => ENV['SENGRID_USERNAME'],
-     :password => ENV['SENGRID_PASSWORD'],
+     :user_name => ENV['SENDGRID_USERNAME'],
+     :password => ENV['SENDGRID_PASSWORD'],
      :domain => 'https://latiendadememo.herokuapp.com/',
      :address => 'smpt.sengrid.net',
      :port => 587,
      :authentication => :plain,
      :enable_starttls_auto => true
    }
-  
+
 end
