@@ -101,7 +101,7 @@ Rails.application.configure do
      :user_name => ENV['SENDGRID_USERNAME'],
      :password => ENV['SENDGRID_PASSWORD'],
      :domain => 'https://tienda-de-daniel.herokuapp.com/',
-     :address => 'smpt.sendgrid.net',
+     :address => 'smtp.sendgrid.net',
      :port => 587,
      :authentication => :plain,
      :enable_starttls_auto => true
