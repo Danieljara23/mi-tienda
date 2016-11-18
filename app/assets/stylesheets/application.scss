@@ -23,3 +23,18 @@ p.description{
 #productsContainer #categories + div{
   margin-left: 215px;
 }
+.price{
+      width: 70px;
+    /* float: right; */
+    position: fixed;
+    text-align: center;
+    border-radius: 4px;
+}
+.navbar-nav > li.label-red > a{
+  color: red;
+  font-weigth: bold;
+}
+.navbar-nav > li.label-green > a{
+  color:green;
+  font-weigth: bold;
+}
